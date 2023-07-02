@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="901eadd5e3e9422cb24d1e7a14e7e6c3" Name="Diagram1">
+        <EntityTypeShape EntityType="DbProjectOfficeModel.Attachment" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectOfficeModel.Comment" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectOfficeModel.Emploeyy" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectOfficeModel.Project" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectOfficeModel.StoryTaskStatus" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectOfficeModel.Task" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectOfficeModel.TaskStatus" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Attachment_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Comment_Emploeyy" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Comment_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Project_Emploeyy" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Project_Emploeyy1" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Task_Emploeyy" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Task_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_StoryTaskStatus_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_StoryTaskStatus_TaskStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Task_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.FK_Task_TaskStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectOfficeModel.ListOfObservers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
