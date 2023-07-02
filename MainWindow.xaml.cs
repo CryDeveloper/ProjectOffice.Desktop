@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,28 @@ namespace ProjectOffice.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            GlobalData.ActiveFrame = frmMain;
+            GlobalData.ActiveFrame.Navigate(new TaskPage());
+            //GlobalData.SelectedProject = 
+
+            tbVersion.Text = "Версия: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+
+        }
+
+        private void btnDashboard_Click(object sender, RoutedEventArgs e)
+        {
+            GlobalData.ActiveFrame.Navigate(new DashboardPage());
+        }
+
+        private void btnTasks_Click(object sender, RoutedEventArgs e)
+        {
+            GlobalData.ActiveFrame.Navigate(new TaskPage());
+        }
+
+        private void btnGang_Click(object sender, RoutedEventArgs e)
+        {
+            GlobalData.ActiveFrame.Navigate(new GantPage());
         }
     }
 }

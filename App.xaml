@@ -4,6 +4,36 @@
              xmlns:local="clr-namespace:ProjectOffice.Desktop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Стили текстбоксов-->
+        <Style TargetType="TextBlock" x:Key="TBlMainStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Header" BasedOn="{StaticResource TBlMainStyle}">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <!--Стили кнопок-->
+        <Style TargetType="Button" x:Key="BtnMainStyle">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="Button" x:Key="ElementMenu" BasedOn="{StaticResource BtnMainStyle}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Margin" Value="30, 5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <!--<Setter Property="HorizontalAlignment" Value="Left"/>-->
+
+        </Style>
+
+
+        <!--Стили изображений-->
+        <Style TargetType="Image" x:Key="ImgMainStyle">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="50"/>
+        </Style>
     </Application.Resources>
 </Application>

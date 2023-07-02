@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectOffice.Desktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Управление проектами" MinHeight="450" MinWidth="800"
+        >
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="LeftMenu" Grid.Column="0">
+            <StackPanel VerticalAlignment="Top" Orientation="Vertical" Grid.RowSpan="2">
+                <!--ScrollViewer.VerticalScrollBarVisibility="Hidden" CanVerticallyScroll="True"-->
+                <Image Source="/Source/construction_project_plan_building_architect_design_develop-53_icon-icons.com_60217.ico" Style="{StaticResource ImgMainStyle}"/>
+                <Button x:Name="btnDashboard" Content="Дашборд" Style="{StaticResource ElementMenu}" Click="btnDashboard_Click"/>
+                <Button x:Name="btnTasks" Content="Задачи" Style="{StaticResource ElementMenu}" Click="btnTasks_Click"/>
+                <Button x:Name="btnGang" Content="Ганг" Style="{StaticResource ElementMenu}" Click="btnGang_Click"/>
+                <ListBox ItemsSource="{Binding }" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListBoxItem>
+                        <Button Content="{Binding }" Style="{StaticResource ElementMenu}" Click="btnDashboard_Click"/>
+                    </ListBoxItem>
+                </ListBox>
+            </StackPanel>
+
+            <Grid VerticalAlignment="Bottom">
+                <TextBlock x:Name="tbVersion"/>
+            </Grid>
+        </Grid>
+        <Grid Name="InfoPart" Grid.Column="1">
+            <Frame x:Name="frmMain" NavigationUIVisibility="Hidden"/>
+        </Grid>
     </Grid>
 </Window>
