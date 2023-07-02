@@ -11,6 +11,6 @@ namespace ProjectOffice.Desktop.Classes
     {
         public static Frame ActiveFrame;
 
-        //public static Project SelectedProject;
+        public static Project SelectedProject;
     }
 }
