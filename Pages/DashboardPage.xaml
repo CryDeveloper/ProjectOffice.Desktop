@@ -9,6 +9,15 @@
       Title="DashboardPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Дашборд" Style="{StaticResource Header}" />
+        </Grid>
+        <Grid Grid.Row="1">
+
+        </Grid>
     </Grid>
 </Page>

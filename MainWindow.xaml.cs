@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectOffice.Desktop.Classes;
+using ProjectOffice.Desktop.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -45,7 +47,7 @@ namespace ProjectOffice.Desktop
 
         private void btnGang_Click(object sender, RoutedEventArgs e)
         {
-            GlobalData.ActiveFrame.Navigate(new GantPage());
+            GlobalData.ActiveFrame.Navigate(new GangPage());
         }
     }
 }
