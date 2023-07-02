@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ProjectOffice.Desktop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!--Стили текстбоксов-->
+        <!--Стили текстблоков-->
         <Style TargetType="TextBlock" x:Key="TBlMainStyle">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="5"/>
@@ -15,6 +15,38 @@
             <Setter Property="Margin" Value="10"/>
         </Style>
 
+        <!--Стили текстбоксов-->
+        <Style TargetType="TextBox" x:Key="TBxMainStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="MinWidth" Value="180"/>
+        </Style>
+        
+        <!--Стили комбобоксы-->
+        <Style TargetType="ComboBox" x:Key="CBMainStyle">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="MinWidth" Value="180"/>
+        </Style>
+
+        <!--Стили стк панелей-->
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <!--Стили листбоксов-->
+        <!--<Style TargetType="ListBoxItem">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True" >
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Background" Value="LightBlue" />
+                    <Setter Property="Foreground" Value="{x:Null}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+        
         <!--Стили кнопок-->
         <Style TargetType="Button" x:Key="BtnMainStyle">
             <Setter Property="FontSize" Value="16"/>
@@ -25,7 +57,6 @@
             <Setter Property="Margin" Value="30, 5"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <!--<Setter Property="HorizontalAlignment" Value="Left"/>-->
-
         </Style>
 
 

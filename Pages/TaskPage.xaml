@@ -5,19 +5,108 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectOffice.Desktop.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="600"
+      MinHeight="450" MinWidth="600"
       Title="TaskPage">
 
-    <Grid>
+    <Grid x:Name="GridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock Text="Задачи проекта" Style="{StaticResource Header}" />
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Задачи проекта" Style="{StaticResource Header}" />
+                <TextBlock x:Name="tbNameProect" Style="{StaticResource TBlMainStyle}" Foreground="Gray"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Поиск" Style="{StaticResource TBlMainStyle}" Foreground="Gray" />
+                <TextBox x:Name="Search"  Style="{StaticResource TBxMainStyle}" TextChanged="Search_TextChanged"/>
+            </StackPanel>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" x:Name="MainGridTasks">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="grListTasks" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
 
+                <ListBox x:Name="lbTasks" SelectionChanged="lbTasks_SelectionChanged" Grid.RowSpan="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <GroupBox Header="{Binding FullTitle}" Background="{Binding TaskStatus.ColorHex}" Width="{Binding ActualWidth, 
+              RelativeSource = {RelativeSource AncestorType = {x:Type ListBox}}}">
+                                <WrapPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Номер: " Style="{StaticResource TBlMainStyle}" />
+                                        <TextBlock Text="{Binding ShortTitle}" Style="{StaticResource TBlMainStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Исполнитель: " Style="{StaticResource TBlMainStyle}" />
+                                        <TextBlock Text="{Binding Emploeyy.FullName}" Style="{StaticResource TBlMainStyle}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Дедлайн: " Style="{StaticResource TBlMainStyle}" />
+                                        <TextBlock Text="{Binding Deadline}" Style="{StaticResource TBlMainStyle}"/>
+                                    </StackPanel>
+                                </WrapPanel>
+                            </GroupBox>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="CreateTask" Grid.Row="1" Content="Добавить задачу" Width="150" HorizontalAlignment="Right" VerticalAlignment="Center" Click="CreateTask_Click"/>
+            </Grid>
+
+            <Grid x:Name="grViewTask" Visibility="Collapsed" Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="10,10,10,10" Grid.Row="0" >
+                    <StackPanel>
+                        <TextBlock x:Name="nameWiewTask" HorizontalAlignment="Right" VerticalAlignment="Center"  Style="{StaticResource TBlMainStyle}"/>
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <TextBlock Text="Проект: " Style="{StaticResource TBlMainStyle}" />
+                        <ComboBox x:Name="cbProject" SelectedIndex="{Binding ProjectId, Mode=TwoWay}" DisplayMemberPath="FullTitle" SelectedValuePath="ProjectId" Style="{StaticResource CBMainStyle}"/>
+                        <!--</StackPanel>-->
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <TextBlock Text="Полное название: " Style="{StaticResource TBlMainStyle}" />
+                        <TextBox Text="{Binding FullTitle}" Style="{StaticResource TBxMainStyle}"/>
+                        <!--</StackPanel>-->
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <TextBlock Text="Короткое название: " Style="{StaticResource TBlMainStyle}" />
+                        <TextBox Text="{Binding ShortTitle}" Style="{StaticResource TBxMainStyle}" IsEnabled="False"/>
+                        <!--</StackPanel>-->
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <TextBlock Text="Описание: " Style="{StaticResource TBlMainStyle}" />
+                        <TextBox Text="{Binding Description}" Style="{StaticResource TBxMainStyle}"/>
+                        <!--</StackPanel>-->
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <TextBlock Text="Статус: " Style="{StaticResource TBlMainStyle}" />
+                        <ComboBox x:Name="cbStatus" SelectedIndex="{Binding StatusId, Mode=TwoWay}" DisplayMemberPath = "Name" SelectedValuePath = "StatusId" Style="{StaticResource CBMainStyle}"/>
+
+                        <TextBlock Text="Ответсвенный сотрудник: " Style="{StaticResource TBlMainStyle}" />
+                        <ComboBox x:Name="cbExEmployee" SelectedIndex="{Binding ExecutiveEmployeeId, Mode=TwoWay}" DisplayMemberPath = "FullName" SelectedValuePath = "ExecutiveEmployeeId" Style="{StaticResource CBMainStyle}"/>
+                        <!--</StackPanel>-->
+                        <TextBlock Text="Дата создания: " Style="{StaticResource TBlMainStyle}" />
+                        <DatePicker  SelectedDate="{Binding CreatedTime}" IsEnabled="False"/>
+                        <TextBlock Text="Дата обновления: " Style="{StaticResource TBlMainStyle}" />
+                        <DatePicker  SelectedDate="{Binding UpdatedTime}" IsEnabled="False"/>
+                        <TextBlock Text="Дедлайн: " Style="{StaticResource TBlMainStyle}" />
+                        <Calendar  SelectedDate="{Binding Deadline}"/>
+                        <TextBlock Text="Начало выполнения: " Style="{StaticResource TBlMainStyle}" />
+                        <DatePicker  SelectedDate="{Binding Deadline}"/>
+                        <TextBlock Text="Завершение выполнения: " Style="{StaticResource TBlMainStyle}" />
+                        <DatePicker  SelectedDate="{Binding Deadline}"/>
+                    </StackPanel>
+                </ScrollViewer>
+    
+                <Button x:Name="CloseViewTask" Grid.Row="1" Width="50" Click="CloseViewTask_Click" VerticalAlignment="Center"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

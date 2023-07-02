@@ -19,14 +19,16 @@
                 <Button x:Name="btnDashboard" Content="Дашборд" Style="{StaticResource ElementMenu}" Click="btnDashboard_Click"/>
                 <Button x:Name="btnTasks" Content="Задачи" Style="{StaticResource ElementMenu}" Click="btnTasks_Click"/>
                 <Button x:Name="btnGang" Content="Ганг" Style="{StaticResource ElementMenu}" Click="btnGang_Click"/>
-                <ListBox x:Name="lbProject" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                    <ListBoxItem>
-                        <Button Content="{Binding ShortName}" Style="{StaticResource ElementMenu}">
-                            <Button.ToolTip>
-                                <ToolTip Content="{Binding FullTitle}"/>
-                            </Button.ToolTip>
-                        </Button>
-                    </ListBoxItem>
+                <ListBox x:Name="lbProject" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden" SelectionChanged="lbProject_SelectionChanged" Background="{x:Null}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnProject" Content="{Binding ShortName}" Style="{StaticResource ElementMenu}">
+                                <Button.ToolTip>
+                                    <ToolTip Content="{Binding FullTitle}"/>
+                                </Button.ToolTip>
+                            </Button>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
 

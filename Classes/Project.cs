@@ -20,7 +20,7 @@ namespace ProjectOffice.Desktop.Models
                 }                    
                 else if(wordInTitle.Length > 1)
                 {
-                    for (int i = 0; i <= 2; i++)
+                    for (int i = 0; i < 2; i++)
                     {
                         shortName += (wordInTitle[i].ToUpper())[0];
                     }
