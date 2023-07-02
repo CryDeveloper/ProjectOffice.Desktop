@@ -1,4 +1,5 @@
 ﻿using ProjectOffice.Desktop.Classes;
+using ProjectOffice.Desktop.Models;
 using ProjectOffice.Desktop.Pages;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,8 @@ namespace ProjectOffice.Desktop
             InitializeComponent();
             GlobalData.ActiveFrame = frmMain;
             GlobalData.ActiveFrame.Navigate(new TaskPage());
-            //GlobalData.SelectedProject = 
+            GlobalData.SelectedProject = GlobalData.BaseConnect.Project.ToList()[0];
+            lbProject.ItemsSource = GlobalData.BaseConnect.Project.ToList();
 
             tbVersion.Text = "Версия: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
